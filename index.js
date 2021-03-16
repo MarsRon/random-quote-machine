@@ -43,8 +43,8 @@ function suggestQuote() {
 }
 
 function cancelSuggest() {
-	$("#input-text").attr("style", "display:none");
-	$("#input-author").attr("style", "display:none");
+	$("#input-text").attr("style", "display:none").val("");
+	$("#input-author").attr("style", "display:none").val("");
 	$("#cancel-quote").attr("style", "display:none");
 	$("#submit-quote").attr("style", "display:none");
 	$("#text").removeAttr("style");
