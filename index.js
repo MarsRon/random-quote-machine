@@ -54,12 +54,13 @@ function cancelSuggest() {
 }
 
 function submitSuggest() {
-	cancelSuggest();
-	const quote = $("#input-text").val(), author = $("#input-author").val();
+	const quote = $("#input-text").val().trim(), author = $("#input-author").val().trim();
+	if (quote === "" || author === "") return;
 	const xhr = new XMLHttpRequest();
 	xhr.open("POST", "https://discord.com/api/webhooks/821278232610996274/YySOToxTogqQsmUH6WUFSe3Gs7PtZbh2IhWLwqsuzmeRc_zn-6BbFsCxs6dttA71VmjW", true);
 	xhr.setRequestHeader("Content-Type", "application/json");
 	xhr.send(JSON.stringify({embeds:[{description:`"${quote}"\n- ${author}\n\`\`\`json\n{"quote":"${quote}","author":"${author}"}\`\`\``,color:2793983}]}));
+	cancelSuggest();
 	alert("Thanks for suggesting a quote!");
 }
 
