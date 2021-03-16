@@ -19,9 +19,9 @@
 	<div id="wrapper">
 		<div id="quote-box">
 			<div class="quote-text">
-				<i class="fa fa-quote-left"> </i><span id="text"></span>
+				<i class="fa fa-quote-left"> </i><span id="text"></span><input id="input-text" style="display:none">
 			</div>
-			<div class="quote-author">- <span id="author"></span></div>
+			<div class="quote-author">- <span id="author"></span><input id="input-author" style="display:none" /></div>
 			<div class="buttons">
 				<a class="button" id="tweet-quote" title="Tweet this quote!" target="_top">
 					<i class="fa fa-twitter"></i>
@@ -30,6 +30,9 @@
 					<i class="fa fa-tumblr"></i>
 				</a>
 				<button class="button" id="new-quote" tabindex="1" autofocus>New quote</button>
+				<button class="button" id="suggest-quote" tabindex="2">Suggest quote</button>
+				<button class="button" id="submit-quote" style="display:none">Submit</button>
+				<button class="button" id="cancel-quote" style="display:none">Cancel</button>
 			</div>
 		</div>
 		<div class="footer">by <a href="https://marsron.github.io">MarsRon</a></div>

@@ -47,21 +47,23 @@ body {
 	background-color: #fff
 }
 
-#quote-box .quote-text {
+#quote-box .quote-text, #input-text {
 	text-align: center;
 	width: 450px;
 	height: auto;
 	clear: both;
 	font-weight: 500;
-	font-size: 1.75em
+	font-size: 1.75em;
+	font-family: Raleway, sans-serif;
 }
 
 #quote-box .quote-text i {
 	font-size: 1em;
-	margin-right: .4em
+	margin-right: .4em;
+	vertical-align: top
 }
 
-#quote-box .quote-author {
+#quote-box .quote-author, #input-author {
 	width: 450px;
 	height: auto;
 	clear: both;
@@ -106,7 +108,24 @@ body {
 	width: 40px
 }
 
-#quote-box .buttons .button#new-quote {
+#new-quote, #suggest-quote, #cancel-quote, #submit-quote {
 	font-size: 1em;
 	float: right
+}
+
+#suggest-quote, #cancel-quote {
+	margin-right: 5px;
+}
+
+#input-text {
+	max-width: 400px;
+	height: auto;
+	font-size: 1.2em;
+	text-align: left;
+}
+
+#input-author {
+	max-width: 150px;
+	padding-top: 0;
+	text-align: left;
 }
