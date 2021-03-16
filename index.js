@@ -2,11 +2,17 @@ const { floor, random } = Math;
 
 const colors = ["#16a085", "#27ae60", "#2c3e50", "#f39c12", "#e74c3c", "#9b59b6", "#FB6964", "#342224", "#472E32", "#BDBB99", "#77B1A9", "#73A857"];
 
-let quotes, color;
+let quotes, color, lastIndex;
 let suggesting = false;
 
 function getQuote() {
-	const { quote, author } = quotes[floor(random() * quotes.length)];
+	let index;
+	do {
+		index = floor(random() * quotes.length);
+	} while (index === lastIndex);
+	lastIndex = index;
+
+	const { quote, author } = quotes[index];
 
 	$(".quote-text").animate({ opacity: 0 }, 500, function () {
 		$(this).animate({ opacity: 1 }, 500);
@@ -47,11 +53,13 @@ function cancelSuggest() {
 	$("#suggest-quote").attr("style", "background-color: " + color);
 }
 
-function submitSuggest(e) {
+function submitSuggest() {
+	cancelSuggest();
+	const quote = $("#input-text").val(), author = $("#input-author").val();
 	const xhr = new XMLHttpRequest();
 	xhr.open("POST", "https://discord.com/api/webhooks/821278232610996274/YySOToxTogqQsmUH6WUFSe3Gs7PtZbh2IhWLwqsuzmeRc_zn-6BbFsCxs6dttA71VmjW", true);
 	xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.send(JSON.stringify({embeds:[{description:`"${$("#input-text").val()}"\n- ${$("#input-author").val()}`,color:2793983}]}));
+	xhr.send(JSON.stringify({embeds:[{description:`"${quote}"\n- ${author}\n\`\`\`json\n{"quote":"${quote}","author":"${author}"}\`\`\``,color:2793983}]}));
 	alert("Thanks for suggesting a quote!");
 }
 
