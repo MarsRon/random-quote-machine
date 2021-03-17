@@ -1,4 +1,5 @@
 const { floor, random } = Math;
+const rand = n => floor(100000000000000 * random() * random()) % (n + 1);
 
 const colors = ["#16a085", "#27ae60", "#2c3e50", "#f39c12", "#e74c3c", "#9b59b6", "#FB6964", "#342224", "#472E32", "#BDBB99", "#77B1A9", "#73A857"];
 
@@ -8,7 +9,7 @@ let suggesting = false;
 function getQuote() {
 	let index;
 	do {
-		index = floor(random() * quotes.length);
+		index = rand(quotes.length);
 	} while (index === lastIndex);
 	lastIndex = index;
 
@@ -23,7 +24,7 @@ function getQuote() {
 		$("#author").html(author);
 	});
 
-	color = colors[floor(random() * colors.length)];
+	color = colors[rand(colors.length)];
 	$("html,body").animate({ backgroundColor: color, color }, 1000);
 	$(".button").animate({ backgroundColor: color }, 1000);
 	
