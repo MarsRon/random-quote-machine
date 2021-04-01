@@ -36,19 +36,19 @@ export default function Suggest() {
 					variant="outlined"
 					color="primary"
 					onChange={v => setAuthor(v.target.value)}
+					style={{marginBottom: "10px"}}
 				/>
 				<Button
 					variant="contained"
 					color="primary"
 					onClick={() => {
+						if (!(quote && author)) return;
 						const message = new MessageEmbed()
 							.setDescription(
-								`${quote}\n - ${author}\n\`\`\`json\n{"quote": ${quote}, "author": ${author}}\`\`\``
+								`"${quote}"\n - ${author}\n\`\`\`json\n{"quote": "${quote}", "author": "${author}"}\`\`\``
 							)
 							.setColor("#FFB6C1");
-						webhook.send(message).then(() => {
-							alert("Thanks for the suggestion!")
-						});
+						webhook.send(message).then(() => alert("Thanks for the suggestion!"));
 					}}
 				>
 					Send
