@@ -1,19 +1,21 @@
-import { makeStyles, Typography } from '@material-ui/core'
+import { makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles({
 	quote: {
-		fontSize: '3vw',
-		marginTop: '0',
+		fontSize: "3vw",
+		fontWeight: "500",
+		marginTop: "0",
 	},
 	author: {
-		fontSize: '1.5vw',
+		fontSize: "1.5vw",
 	},
 	centerText: {
-		textAlign: 'center',
+		textAlign: "center",
 	},
-})
+});
+
 export default function Quote({ quote, author }) {
-	const classes = useStyles()
+	const classes = useStyles();
 	return (
 		<div className={classes.centerText}>
 			<blockquote>
@@ -21,5 +23,5 @@ export default function Quote({ quote, author }) {
 			</blockquote>
 			<Typography className={classes.author}>- {author}</Typography>
 		</div>
-	)
+	);
 }

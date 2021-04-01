@@ -1,15 +1,15 @@
-import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core'
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { HashRouter, Route, Switch } from 'react-router-dom'
-import Main from './Main'
-import Suggest from './Suggest'
+import { createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
+import React from "react";
+import ReactDOM from "react-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
+import Main from "./Main";
+import Suggest from "./Suggest";
 
 const theme = createMuiTheme({
 	palette: {
-		type: 'dark',
+		type: "dark",
 	},
-})
+});
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -28,5 +28,5 @@ ReactDOM.render(
 			</HashRouter>
 		</ThemeProvider>
 	</React.StrictMode>,
-	document.getElementById('root')
-)
+	document.getElementById("root")
+);

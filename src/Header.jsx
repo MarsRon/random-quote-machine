@@ -7,39 +7,35 @@ import {
 	MenuItem,
 	Menu,
 	Breadcrumbs,
-} from '@material-ui/core'
-import { Menu as MenuIcon } from '@material-ui/icons'
-import React from 'react'
-import { Link as ReactLink, useLocation } from 'react-router-dom'
+} from "@material-ui/core";
+import { Menu as MenuIcon } from "@material-ui/icons";
+import React from "react";
+import { Link as ReactLink, useLocation } from "react-router-dom";
 const useStyles = makeStyles({
 	title: {
 		flexGrow: 1,
-		color: '#FFF',
+		color: "#FFF",
 	},
 	text: {
-		padding: '10px',
+		padding: "10px",
 	},
 	github: {
-		color: '#FFF',
+		color: "#FFF",
 	},
 	bar: {
-		position: 'fixed',
+		position: "fixed",
 	},
-})
+});
 
 export default function Header() {
-	const classes = useStyles()
-	const location = useLocation()
-	const [anchorEl, setAnchorEl] = React.useState(null)
-	const open = Boolean(anchorEl)
+	const classes = useStyles();
+	const location = useLocation();
+	const [anchorEl, setAnchorEl] = React.useState(null);
+	const open = Boolean(anchorEl);
 
-	const handleMenu = (event) => {
-		setAnchorEl(event.currentTarget)
-	}
+	const handleMenu = (event) => setAnchorEl(event.currentTarget);
+	const handleClose = () => setAnchorEl(null);
 
-	const handleClose = () => {
-		setAnchorEl(null)
-	}
 	return (
 		<AppBar position="static" className={classes.bar}>
 			<Toolbar>
